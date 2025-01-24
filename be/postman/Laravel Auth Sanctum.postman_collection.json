@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "0d867e13-03ab-46ce-a9dc-6bf9fbeb18f0",
+		"name": "Laravel Auth Sanctum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4819859",
+		"_collection_link": "https://speeding-satellite-1624.postman.co/workspace/invitation~801197b7-d1c6-4c79-ba77-604b32489d0c/collection/4819859-0d867e13-03ab-46ce-a9dc-6bf9fbeb18f0?action=share&source=collection_link&creator=4819859"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Test",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/register",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/login",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/logout",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/reset-password",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email-resend",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/email/resend",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"email",
+								"resend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forgot-password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test@example.com",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "emailinize gelen reset token",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "new-password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "new-password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/forgot-password",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "email-verify",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/email/verify/{id}/{hash}",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"email",
+								"verify",
+								"{id}",
+								"{hash}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-redirect",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/google/redirect",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"google",
+								"redirect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "google-callback",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{apiURL}}/auth/google/callback",
+							"host": [
+								"{{apiURL}}"
+							],
+							"path": [
+								"auth",
+								"google",
+								"callback"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"item": []
+		}
+	]
+}

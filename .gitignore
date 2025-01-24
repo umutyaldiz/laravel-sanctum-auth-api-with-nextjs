@@ -1,0 +1,25 @@
+# Laravel (Backend) ignore
+/be/vendor/
+/be/node_modules/
+/be/public/storage
+/be/.env
+/be/.env.local
+/be/.env.*.php
+/be/storage/
+/be/bootstrap/cache/
+
+# Next.js (Frontend) ignore
+/fe/node_modules/
+/fe/.next/
+/fe/out/
+/fe/.env.local
+/fe/.env.*.local
+/fe/.next/cache
+/fe/public/.cache
+
+# MacOS, Windows ve IDE dosyalarını yok say
+.DS_Store
+Thumbs.db
+.idea/
+/.vscode/
+/*.log
