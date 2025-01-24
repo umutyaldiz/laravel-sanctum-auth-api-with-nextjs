@@ -15,7 +15,6 @@ export default function Dashboard() {
     if (!token) {
       router.push('/login');
     } else {
-
       axios.get('http://127.0.0.1:8000/api/v1/auth/user', {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -30,6 +29,11 @@ export default function Dashboard() {
     }
   }, [router]);
 
+  const handleLogout = () => {
+    Cookie.remove('token'); // Token'ı sil
+    router.push('/login');  // Login sayfasına yönlendir
+  };
+
   if (error) return <div>{error}</div>;
 
   return (
@@ -39,6 +43,7 @@ export default function Dashboard() {
         <div>
           <h2>Hoş geldiniz, {user.name}</h2>
           <p>Email: {user.email}</p>
+          <button onClick={handleLogout}>Çıkış Yap</button>
         </div>
       ) : (
         <div>Yükleniyor...</div>
